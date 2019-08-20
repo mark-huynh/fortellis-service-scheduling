@@ -17,16 +17,16 @@ class CardInfo extends Component {
   
   render() {
     return (
-      <Container>
+      // <Container>
         <Content>
           <Card>
           <CardItem header>
-              <Text>{this.props.time}</Text>
+              <Text>{this.props.startTime}</Text>
             </CardItem>
             <CardItem>
               <Body>
                 <Text>
-                   falkdsf ladskjfla ;sdkjfal;skdjfal;sk djfal;sdk jfal;sdkfjal;dkjf a;lkdfj a;slfj ls;ad fjs;lkd jfa;lsk dajfl;sdj f;adlk jdl kfjl ksljfls 
+                  {this.props.title}
                 </Text>
               </Body>
             </CardItem>
@@ -50,16 +50,17 @@ class CardInfo extends Component {
             </CardItem>
           </Card>
         </Content>
-      </Container>
+      // </Container>
     );
   }
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     width: "200px"
-//   }
-// });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: "200px"
+  }
+});
 
 
 
