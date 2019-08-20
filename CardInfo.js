@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import { Container, Content, Card, CardItem, Body, Text } from 'native-base';
 import { Platform, StyleSheet, View } from 'react-native';
+import { Header, Button, ActionSheet } from "native-base";
+
+var DESTRUCTIVE_INDEX = 3;
+var CANCEL_INDEX = 4;
+var BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
+
 
 class CardInfo extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  
   render() {
     return (
-      <Container style={styles.container}>
+      <Container>
         <Content>
           <Card>
           <CardItem header>
@@ -19,7 +31,22 @@ class CardInfo extends Component {
               </Body>
             </CardItem>
             <CardItem footer bordered>
-              <Text>See More Info</Text>
+            <Button
+            onPress={() =>
+            ActionSheet.show(
+              {
+                options: BUTTONS,
+                cancelButtonIndex: CANCEL_INDEX,
+                destructiveButtonIndex: DESTRUCTIVE_INDEX,
+                title: "Testing ActionSheet"
+              },
+              buttonIndex => {
+                this.setState({ clicked: BUTTONS[buttonIndex] });
+              }
+            )}
+          >
+            <Text>Modify Appointment</Text>
+          </Button>
             </CardItem>
           </Card>
         </Content>
@@ -28,11 +55,11 @@ class CardInfo extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    width: "200px"
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     width: "200px"
+//   }
+// });
 
 
 
