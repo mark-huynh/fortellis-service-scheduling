@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Header, Button } from 'react-native';
-import { HeaderButtons, HeaderButton, Item } from 'react-navigation-header-buttons';
-import { Spinner, Root } from 'native-base';
+import {Root, Spinner} from 'native-base';
 import * as Font from 'expo-font';
 import HomeScreenHeader from './HomeScreenHeader';
+import {getStatusBarHeight} from "react-native-status-bar-height";
+import { HeaderButtons, HeaderButton, Item } from 'react-navigation-header-buttons';
 import { Ionicons } from '@expo/vector-icons';
 import MainList from './MainList';
-// import { createDrawerNavigator } from 'react-navigation';
 import { TouchableHighlight } from 'react-native-gesture-handler';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  header: {
+    paddingTop: getStatusBarHeight() +100,
+    height: 54 + getStatusBarHeight(),
+  }
+});
 
 class HomeScreen extends React.Component {
   constructor(props) {
@@ -24,8 +34,10 @@ class HomeScreen extends React.Component {
       <View>
         {
           this.state.loaded ? (
-            <Root>
-              <HomeScreenHeader />
+
+
+            <Root styles={ styles.container }>
+              <HomeScreenHeader style={ styles.header } />
               <MainList></MainList>
               <Ionicons
                 name="ios-add-circle-outline"

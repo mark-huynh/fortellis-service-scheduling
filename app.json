@@ -1,6 +1,11 @@
 {
   "name": "FirstReact",
   "displayName": "Name",
+  "androidStatusBarColor": "#334393",
+  "androidStatusBar": {
+    "barStyle": "light-content",
+    "backgroundColor": "#334393"
+  },
   "expo": {
     "name": "FirstReact",
     "slug": "expo-template-bare",
@@ -12,6 +17,11 @@
       "ios",
       "android",
       "web"
-    ]
+    ],
+    "androidStatusBarColor": "#334393",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#334393"
+    }
   }
 }
