@@ -17,7 +17,7 @@ export default class HomeScreenHeader extends Component {
     return (
       <Header>
         <Body>
-          <Title>Fortellis Service Scheduling</Title>
+          <Title>Servicing Appointments</Title>
         </Body>
         <Right>
           <Button

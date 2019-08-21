@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, Header, Button } from 'react-native';
-import {Root, Spinner} from 'native-base';
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
+import {Spinner} from 'native-base';
 import * as Font from 'expo-font';
 import HomeScreenHeader from './HomeScreenHeader';
 import {getStatusBarHeight} from "react-native-status-bar-height";
-import { HeaderButtons, HeaderButton, Item } from 'react-navigation-header-buttons';
-import { Ionicons } from '@expo/vector-icons';
-import MainList from './MainList';
-import { TouchableHighlight } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,25 +27,21 @@ class HomeScreen extends React.Component {
    };
   render() {  
     return (
-      <View>
+      <View styles={ styles.container }>
         {
           this.state.loaded ? (
-
-
-            <Root styles={ styles.container }>
               <HomeScreenHeader style={ styles.header } />
-              <MainList></MainList>
-              <Ionicons
-                name="ios-add-circle-outline"
-                size={50}
-                color="green"Î
-                style={{
-                  position: 'absolute',
-                  bottom: 10,
-                  right: 20,
-                }}
-            />  
-            </Root>
+            //   <MainList></MainList>
+            //   <Ionicons
+            //     name="ios-add-circle-outline"
+            //     size={50}
+            //     color="green"Î
+            //     style={{
+            //       position: 'absolute',
+            //       bottom: 10,
+            //       right: 20,
+            //     }}
+            // />
           ) : (
             <Spinner />
           )
