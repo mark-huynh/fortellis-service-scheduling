@@ -1,22 +1,11 @@
-<<<<<<< Updated upstream
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Spinner } from 'native-base';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Spinner} from 'native-base';
 import * as Font from 'expo-font';
 import HomeScreenHeader from './HomeScreenHeader';
-import { getStatusBarHeight } from "react-native-status-bar-height";
-=======
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, Header, Button, TouchableOpacity } from 'react-native';
-import { Root, Spinner } from 'native-base';
-import * as Font from 'expo-font';
-import HomeScreenHeader from './HomeScreenHeader';
-import { getStatusBarHeight } from "react-native-status-bar-height";
-import { HeaderButtons, HeaderButton, Item } from 'react-navigation-header-buttons';
-import { Ionicons } from '@expo/vector-icons';
+import {getStatusBarHeight} from "react-native-status-bar-height";
+import {Ionicons} from '@expo/vector-icons';
 import MainList from './MainList';
-import { TouchableHighlight } from 'react-native-gesture-handler';
->>>>>>> Stashed changes
 
 const styles = StyleSheet.create({
   container: {
