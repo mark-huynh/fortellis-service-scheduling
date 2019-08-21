@@ -1,1 +1,10 @@
-{}
+{
+  "expoServerPort": 19000,
+  "webpackServerPort": null,
+  "expoServerNgrokUrl": "https://xd-ya3.anonymous.fortellis-service-scheduling.exp.direct",
+  "packagerNgrokUrl": "https://packager.xd-ya3.anonymous.fortellis-service-scheduling.exp.direct",
+  "ngrokPid": 31239,
+  "devToolsPort": 19002,
+  "packagerPort": 19001,
+  "packagerPid": 31228
+}

@@ -1,16 +1,29 @@
+<<<<<<< Updated upstream
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Spinner} from 'native-base';
+import { StyleSheet, View } from 'react-native';
+import { Spinner } from 'native-base';
 import * as Font from 'expo-font';
 import HomeScreenHeader from './HomeScreenHeader';
-import {getStatusBarHeight} from "react-native-status-bar-height";
+import { getStatusBarHeight } from "react-native-status-bar-height";
+=======
+import React, { Component } from 'react';
+import { StyleSheet, View, Text, Header, Button, TouchableOpacity } from 'react-native';
+import { Root, Spinner } from 'native-base';
+import * as Font from 'expo-font';
+import HomeScreenHeader from './HomeScreenHeader';
+import { getStatusBarHeight } from "react-native-status-bar-height";
+import { HeaderButtons, HeaderButton, Item } from 'react-navigation-header-buttons';
+import { Ionicons } from '@expo/vector-icons';
+import MainList from './MainList';
+import { TouchableHighlight } from 'react-native-gesture-handler';
+>>>>>>> Stashed changes
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
   },
   header: {
-    paddingTop: getStatusBarHeight() +100,
+    paddingTop: getStatusBarHeight() + 100,
     height: 54 + getStatusBarHeight(),
   }
 });
@@ -22,29 +35,34 @@ class HomeScreen extends React.Component {
       loaded: false
     };
   }
-   static navigationOptions = {
-     header: null
-   };
-  render() {  
+  static navigationOptions = {
+    header: null
+  };
+  render() {
     return (
-      <View styles={ styles.container }>
+      <View styles={styles.container}>
         {
           this.state.loaded ? (
-              <HomeScreenHeader style={ styles.header } />
-            //   <MainList></MainList>
-            //   <Ionicons
-            //     name="ios-add-circle-outline"
-            //     size={50}
-            //     color="green"Î
-            //     style={{
-            //       position: 'absolute',
-            //       bottom: 10,
-            //       right: 20,
-            //     }}
-            // />
+
+            <View>
+              <HomeScreenHeader style={styles.header} />
+              <MainList></MainList>
+              <TouchableOpacity>
+                <Ionicons
+                  name="ios-add-circle-outline"
+                  size={50}
+                  color="green" Î
+                  style={{
+                    position: 'absolute',
+                    bottom: 10,
+                    right: 20,
+                  }}
+                />
+              </TouchableOpacity>
+            </View>
           ) : (
-            <Spinner />
-          )
+              <Spinner />
+            )
         }
       </View>
     );
