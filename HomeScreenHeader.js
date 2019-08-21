@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {ActionSheet, Body, Button, Header, Icon, Right, Title} from "native-base";
 
-const BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
+const BUTTONS = ["Settings", "Help", "About", "Log Out"];
 const DESTRUCTIVE_INDEX = 3;
 const CANCEL_INDEX = 4;
 
@@ -29,7 +29,7 @@ export default class HomeScreenHeader extends Component {
                   options: BUTTONS,
                   cancelButtonIndex: CANCEL_INDEX,
                   destructiveButtonIndex: DESTRUCTIVE_INDEX,
-                  title: "Testing ActionSheet"
+                  title: "Menu"
                 },
                 buttonIndex => {
                   this.setState({ clicked: BUTTONS[buttonIndex] });
