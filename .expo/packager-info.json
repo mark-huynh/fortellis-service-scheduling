@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19004,
-  "packagerPid": 12737,
+  "packagerPort": 19003,
+  "packagerPid": 14547,
   "expoServerNgrokUrl": "https://gy-6jf.anonymous.fortellis-service-scheduling.exp.direct",
   "packagerNgrokUrl": "https://packager.gy-6jf.anonymous.fortellis-service-scheduling.exp.direct",
-  "ngrokPid": 12753,
+  "ngrokPid": 14555,
   "webpackServerPort": 19006
 }

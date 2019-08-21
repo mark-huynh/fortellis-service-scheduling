@@ -5,6 +5,7 @@ import CardInfo from './CardInfo';
 import {
     StyleSheet,
     View,
+    ScrollView,
     SectionList,
     Text,
     Platform,
@@ -33,6 +34,7 @@ export default class MainList extends Component {
                 customer: 'ABC',
                 startTime: '0800',
                 endTime: '0930',
+                date: '190825',
                 description: '',
             },
             {
@@ -40,6 +42,7 @@ export default class MainList extends Component {
                 customer: 'N/A',
                 startTime: '0930',
                 endTime: '0945',
+                date: '190825',
                 description: '',
             },
             {
@@ -47,8 +50,17 @@ export default class MainList extends Component {
                 customer: 'ZYX',
                 startTime: '1045',
                 endTime: '1232',
+                date: '190825',
                 description: '',
             },
+            {
+                title: 'Repair',
+                customer: 'FFF',
+                startTime: '1550',
+                endTime: '1750',
+                date: '190825',
+                description: '',
+            }
         ]
     }
     ListItemSeparator = () => {
@@ -58,28 +70,15 @@ export default class MainList extends Component {
     };
 
     render() {
-
-        var stuff = [{
-            title: 'Repair',
-            customer: 'ABC',
-            startTime: '0800',
-            endTime: '0930',
-            description: '',
-        },
-        {
-            title: 'Coffee Break',
-            customer: 'N/A',
-            startTime: '0930',
-            endTime: '0945',
-            description: '',
-        }]
-
-        //return <Text>Hello world!</Text>
-        return <View style={{ flex: 1, justifyContent: 'center' }}>
+        return <ScrollView     contentContainerStyle={{
+            flexGrow: 1,
+            justifyContent: 'space-between'
+        }}>
+        {/* style={{ flex: 1, justifyContent: 'center', paddingVertical: 20}}> */}
             <SectionList style={{ justifyContent: 'center', paddingVertical: 20 }}
                 ItemSeparatorComponent={this.FlatListItemSeparator}
                 sections={[
-                    { title: 'Today', data: stuff },
+                    { title: 'Today', data: this.state.items },
                     // { title: 'Tomorrow', data: '2' },
                     // { title: 'Next Week', data: '3'},
                     // { title: 'Next Week', data: '4'},
@@ -105,9 +104,7 @@ export default class MainList extends Component {
 
                 keyExtractor={(item) => item.id}
             />
-            {/* {this.state.items.map((item) => <Text>{item.title}</Text>)} */}
-
-        </View>
+        </ScrollView>
     }
 
 
