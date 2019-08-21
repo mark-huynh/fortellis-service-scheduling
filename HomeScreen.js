@@ -26,17 +26,17 @@ class HomeScreen extends React.Component {
           this.state.loaded ? (
             <Root>
               <HomeScreenHeader />
-              {/* <MainList></MainList> */}
-              {/* <Ionicons
+              <MainList></MainList>
+              <Ionicons
                 name="ios-add-circle-outline"
-                size={600}
+                size={50}
                 color="green"Î
-                style={
+                style={{
                   position: 'absolute',
                   bottom: 10,
                   right: 20,
-                }
-            />   */}
+                }}
+            />  
             </Root>
           ) : (
             <Spinner />
