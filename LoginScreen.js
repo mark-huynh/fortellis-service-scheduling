@@ -3,11 +3,19 @@ import { StyleSheet, View, Text, Button } from 'react-native';
 
 const styles = StyleSheet.create({
   title: {
-    backgroundColor: 'lightgreen',
+    backgroundColor: 'green',
+    fontWeight: 'bold',
     color: 'white',
     fontSize: 30,
     flexDirection: 'row',
-    alignItems: 'center',
+    textAlign: 'center',
+  },
+    subtitle: {
+    backgroundColor: 'green',
+    color: 'white',
+    fontSize: 20,
+    flexDirection: 'row',
+    textAlign: 'center',
   },
   button: {
     backgroundColor: 'grey',
@@ -24,7 +32,7 @@ render() {
         <Text style = {styles.title}>
           Scheduling APP
           </Text>
-        <Text style = {styles.title}>
+        <Text style = {styles.subtitle}>
           Using Fortellis
           </Text>
         <Text style = {styles.title} >
