@@ -1,51 +1,43 @@
-import React, { Component } from 'react';
-import { Container, Content, Card, CardItem, Body, Text } from 'native-base';
-import { Platform, StyleSheet, View } from 'react-native';
+import React, { Component } from "react";
+import { Container, Content, Card, CardItem, Body, Text } from "native-base";
+import { Platform, StyleSheet, View } from "react-native";
 import { Header, Button, ActionSheet } from "native-base";
-import { TouchableHighlight } from 'react-native-gesture-handler';
+import { TouchableHighlight } from "react-native-gesture-handler";
 
 var DESTRUCTIVE_INDEX = 3;
 var CANCEL_INDEX = 4;
 var BUTTONS = ["Change Appointment", "Delete Appointment", "Cancel"];
 
-
 class CardInfo extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      expanded: false,
-      informationExpanded: false,
-    };
-  }
+  state = {
+    openCustomerInfo: false
+  };
 
   toggleExpanded = () => {
     console.log("EXPANDING THIS ITEM!");
     this.setState({
       expanded: !this.state.expanded,
       informationExpanded: !this.state.informationExpanded
-    })
-  }
+    });
+  };
 
   render() {
     return (
       // <Container>
       <Content>
-        <TouchableHighlight onPress={ () => this.props.navigation.navigate('AddEventScreen') }>
+        <TouchableHighlight
+          onPress={() => this.props.navigation.navigate("AddEventScreen")}
+        >
           <Card>
             <CardItem header>
               <Text>{this.props.startTime}</Text>
             </CardItem>
             <CardItem>
               <Body>
-                <Text>
-                  {this.props.title}
-                </Text>
+                <Text>{this.props.title}</Text>
               </Body>
             </CardItem>
-            <CardItem>
-
-            </CardItem>
+            <CardItem />
             <CardItem footer bordered>
               <Button
                 onPress={() =>
@@ -59,7 +51,8 @@ class CardInfo extends Component {
                     buttonIndex => {
                       this.setState({ clicked: BUTTONS[buttonIndex] });
                     }
-                  )}
+                  )
+                }
               >
                 <Text>Modify Appointment</Text>
               </Button>
@@ -72,23 +65,22 @@ class CardInfo extends Component {
   }
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: 200,
+    width: 200
     // backgroundColor: '#fff',
     // margin:10,
     // overflow:'hidden'
   },
 
   expandedTrue: {
-    backgroundColor: '#000000',
-    maxHeight: 100,
+    backgroundColor: "#000000",
+    maxHeight: 100
   },
 
   expandedFalse: {
-    maxHeight: 250,
+    maxHeight: 250
   },
 
   informationExpandedTrue: {
@@ -99,22 +91,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#f1ab32"
   },
 
-  informationExpandedFalse: {
-
-  },
+  informationExpandedFalse: {},
 
   titleContainer: {
-    flexDirection: 'row'
+    flexDirection: "row"
   },
   title: {
     flex: 1,
     padding: 10,
-    color: '#2a2f43',
-    fontWeight: 'bold'
+    color: "#2a2f43",
+    fontWeight: "bold"
   },
-  button: {
-
-  },
+  button: {},
   buttonImage: {
     width: 30,
     height: 25
@@ -124,8 +112,5 @@ const styles = StyleSheet.create({
     paddingTop: 0
   }
 });
-
-
-
 
 export default CardInfo;

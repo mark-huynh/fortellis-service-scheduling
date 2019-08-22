@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
 });
 
 class LoginScreen extends React.Component {
+
+
+
 render() {  
     return (
       <View>
