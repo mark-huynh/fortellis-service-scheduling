@@ -16,9 +16,4 @@ const NavigationStack = createStackNavigator({
 
 const Container = createAppContainer(NavigationStack);
 
-
-
-
-  
-
 export default Container; 
