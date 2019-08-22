@@ -9,12 +9,12 @@ import api from './apis/resource'
 
 export default class MainList extends Component {
     state = {
-        items: []
+        items: [],
+        time: ""
     }
 
     componentDidMount = async () => {
-        this.setState({items: await api.fetchSchedule().items});
-        
+        await this.setState({items: await api.fetchSchedule().items});
     }
 
     ListItemSeparator = () => {
@@ -40,7 +40,7 @@ export default class MainList extends Component {
                                 // startTime={item.startTime}
                                 startTime={item.dateTime}
                                 // endTime={item.endTime}
-                                endTime={item.dateTime.replace(/(\d+)-(\d+)-(\d+)T(\d+):(\d+):(\d+)Z/, "$3/$2/$1 $4:$5:$6")}
+                                endTime={Date(item.dateTime).toLocaleString()}
                                 // description={item.description}
                                 description={item.remarks}
                                 navigation={this.props.navigation}
