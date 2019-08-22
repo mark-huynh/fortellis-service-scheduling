@@ -1,18 +1,9 @@
 //List.js
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import CardInfo from './CardInfo';
-import {
-    StyleSheet,
-    View,
-    FlatList,
-    ScrollView,
-    SectionList,
-    Text,
-    Platform,
-    Alert,
-} from 'react-native';
-
+import {FlatList, StyleSheet,} from 'react-native';
+import {Content, View} from 'native-base';
 
 
 export default class MainList extends Component {
@@ -61,6 +52,14 @@ export default class MainList extends Component {
                 endTime: '1750',
                 date: '190825',
                 description: '',
+            },
+            {
+                title: 'Repair',
+                customer: 'FFF',
+                startTime: '1550',
+                endTime: '1750',
+                date: '190825',
+                description: '',
             }
         ]
     }
@@ -72,7 +71,7 @@ export default class MainList extends Component {
 
     render() {
         return(
-            <View>
+            <Content>
                 <FlatList
                     contentContainerStyle = {styles.container}
                     data = {this.state.items}
@@ -90,7 +89,7 @@ export default class MainList extends Component {
                     )}
                     keyExtractor={(item, index) => index.toString()}
                 />
-            </View>
+            </Content>
         )
         // return <ScrollView     contentContainerStyle={{
         //     flexGrow: 1,

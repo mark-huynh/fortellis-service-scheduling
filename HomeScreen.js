@@ -1,10 +1,9 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {Spinner} from 'native-base';
+import {StyleSheet} from 'react-native';
+import {Container, Fab, Icon, Spinner} from 'native-base';
 import * as Font from 'expo-font';
 import HomeScreenHeader from './HomeScreenHeader';
 import {getStatusBarHeight} from "react-native-status-bar-height";
-import {Ionicons} from '@expo/vector-icons';
 import MainList from './MainList';
 
 const styles = StyleSheet.create({
@@ -24,36 +23,32 @@ class HomeScreen extends React.Component {
       loaded: false
     };
   }
+
   static navigationOptions = {
     header: null
   };
+
   render() {
     return (
-      <View styles={styles.container}>
-        {
-          this.state.loaded ? (
-
-            <View>
-              <HomeScreenHeader style={styles.header} />
-              <MainList></MainList>
-              <TouchableOpacity>
-                <Ionicons
-                  name="ios-add-circle-outline"
-                  size={50}
-                  color="green" Î
-                  style={{
-                    position: 'absolute',
-                    bottom: 10,
-                    right: 20,
-                  }}
-                />
-              </TouchableOpacity>
-            </View>
-          ) : (
-              <Spinner />
-            )
-        }
-      </View>
+      this.state.loaded ? (
+        <Container>
+          <HomeScreenHeader style={styles.header} />
+          <MainList />
+          <Fab
+            active={this.state.active}
+            direction="up"
+            containerStyle={{ }}
+            style={{ backgroundColor: '#5067FF' }}
+            position="bottomRight"
+            onPress={ () => this.props.navigation.navigate('LoginScreen') }
+            title={"Login"}
+          >
+            <Icon name="add" />
+          </Fab>
+        </Container>
+      ) : (
+          <Spinner />
+      )
     );
   };
 
