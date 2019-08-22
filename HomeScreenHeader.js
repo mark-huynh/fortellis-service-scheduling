@@ -17,7 +17,7 @@ export default class HomeScreenHeader extends Component {
     return (
       <Header>
         <Body>
-          <Title>Servicing Appointments</Title>
+          <Title>Appointments</Title>
         </Body>
         <Right>
           <Button
