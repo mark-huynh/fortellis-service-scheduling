@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, Header, Button } from 'react-native';
-import { HeaderButtons, HeaderButton, Item } from 'react-navigation-header-buttons';
-import { Spinner, Root } from 'native-base';
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {Container, Fab, Icon, Spinner} from 'native-base';
 import * as Font from 'expo-font';
 import HomeScreenHeader from './HomeScreenHeader';
-import { Ionicons } from '@expo/vector-icons';
+import {getStatusBarHeight} from "react-native-status-bar-height";
 import MainList from './MainList';
-// import { createDrawerNavigator } from 'react-navigation';
-import { TouchableHighlight } from 'react-native-gesture-handler';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  header: {
+    paddingTop: getStatusBarHeight() + 100,
+    height: 54 + getStatusBarHeight(),
+  }
+});
 
 class HomeScreen extends React.Component {
   constructor(props) {
@@ -16,33 +23,32 @@ class HomeScreen extends React.Component {
       loaded: false
     };
   }
-   static navigationOptions = {
-     header: null
-   };
-  render() {  
+
+  static navigationOptions = {
+    header: null
+  };
+
+  render() {
     return (
-      <View>
-        {
-          this.state.loaded ? (
-            <Root>
-              <HomeScreenHeader />
-              {/* <MainList></MainList> */}
-              {/* <Ionicons
-                name="ios-add-circle-outline"
-                size={600}
-                color="green"Î
-                style={
-                  position: 'absolute',
-                  bottom: 10,
-                  right: 20,
-                }
-            />   */}
-            </Root>
-          ) : (
-            <Spinner />
-          )
-        }
-      </View>
+      this.state.loaded ? (
+        <Container>
+          <HomeScreenHeader style={styles.header} />
+          <MainList />
+          <Fab
+            active={this.state.active}
+            direction="up"
+            containerStyle={{ }}
+            style={{ backgroundColor: '#5067FF' }}
+            position="bottomRight"
+            onPress={ () => this.props.navigation.navigate('LoginScreen') }
+            title={"Login"}
+          >
+            <Icon name="add" />
+          </Fab>
+        </Container>
+      ) : (
+          <Spinner />
+      )
     );
   };
 

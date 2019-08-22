@@ -1,17 +1,9 @@
 //List.js
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import CardInfo from './CardInfo';
-import {
-    StyleSheet,
-    View,
-    ScrollView,
-    SectionList,
-    Text,
-    Platform,
-    Alert,
-} from 'react-native';
-
+import {FlatList, StyleSheet,} from 'react-native';
+import {Content, View} from 'native-base';
 
 
 export default class MainList extends Component {
@@ -60,6 +52,14 @@ export default class MainList extends Component {
                 endTime: '1750',
                 date: '190825',
                 description: '',
+            },
+            {
+                title: 'Repair',
+                customer: 'FFF',
+                startTime: '1550',
+                endTime: '1750',
+                date: '190825',
+                description: '',
             }
         ]
     }
@@ -70,41 +70,62 @@ export default class MainList extends Component {
     };
 
     render() {
-        return <ScrollView     contentContainerStyle={{
-            flexGrow: 1,
-            justifyContent: 'space-between'
-        }}>
-        {/* style={{ flex: 1, justifyContent: 'center', paddingVertical: 20}}> */}
-            <SectionList style={{ justifyContent: 'center', paddingVertical: 20 }}
-                ItemSeparatorComponent={this.FlatListItemSeparator}
-                sections={[
-                    { title: 'Today', data: this.state.items },
-                    // { title: 'Tomorrow', data: '2' },
-                    // { title: 'Next Week', data: '3'},
-                    // { title: 'Next Week', data: '4'},
-                    // { title: 'Beyond Next Week', data: '5'},
-                ]}
+        return(
+            <Content>
+                <FlatList
+                    contentContainerStyle = {styles.container}
+                    data = {this.state.items}
+                    renderItem={({ item }) => (
+                        <View style={styles.container} >
+                            <CardInfo
+                                style = {styles.container}
+                                title={item.title}
+                                customer={item.customer}
+                                startTime={item.startTime}
+                                endTime={item.endTime}
+                                description={item.description}
+                            />
+                        </View>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                />
+            </Content>
+        )
+        // return <ScrollView     contentContainerStyle={{
+        //     flexGrow: 1,
+        //     justifyContent: 'space-between'
+        // }}>
+        // {/* style={{ flex: 1, justifyContent: 'center', paddingVertical: 20}}> */}
+        //     <SectionList style={{ justifyContent: 'center', paddingVertical: 20 }}
+        //         ItemSeparatorComponent={this.FlatListItemSeparator}
+        //         sections={[
+        //             { title: 'Today', data: this.state.items },
+        //             // { title: 'Tomorrow', data: '2' },
+        //             // { title: 'Next Week', data: '3'},
+        //             // { title: 'Next Week', data: '4'},
+        //             // { title: 'Beyond Next Week', data: '5'},
+        //         ]}
 
 
-                renderSectionHeader={({ section }) => (
-                    <Text style={styles.SectionHeaderStyle}> {section.title} </Text>
-                )}
+        //         renderSectionHeader={({ section }) => (
+        //             <Text style={styles.SectionHeaderStyle}> {section.title} </Text>
+        //         )}
 
-                renderItem={({ item }) => (
-                    <View>
-                        <CardInfo
-                            title={item.title}
-                            customer={item.customer}
-                            startTime={item.startTime}
-                            endTime={item.endTime}
-                            description={item.description}
-                        />
-                    </View>
-                )}
+        //         renderItem={({ item }) => (
+        //             <View>
+        //                 <CardInfo
+        //                     title={item.title}
+        //                     customer={item.customer}
+        //                     startTime={item.startTime}
+        //                     endTime={item.endTime}
+        //                     description={item.description}
+        //                 />
+        //             </View>
+        //         )}
 
-                keyExtractor={(item) => item.id}
-            />
-        </ScrollView>
+        //         keyExtractor={(item) => item.id}
+        //     />
+        // </ScrollView>
     }
 
 
@@ -125,4 +146,7 @@ const styles = StyleSheet.create({
         color: '#000',
         backgroundColor: '#F5F5F5',
     },
+    container: {
+        justifyContent: 'center',
+    }
 });

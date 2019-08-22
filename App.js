@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Container from './ScreenContainer';
-import { createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
-import HomeScreen from './HomeScreen';
-import LoginScreen from './LoginScreen';
+import {Root} from "native-base";
 
 export default class App extends Component {
   render() {
     return (
-      <Container />
+      <Root>
+        <Container />
+      </Root>
     );
   }
 };

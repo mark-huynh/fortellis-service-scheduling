@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import React from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
   title: {
@@ -38,7 +38,7 @@ render() {
         <Text style = {styles.title} >
           LOGIN
         </Text>
-        <Button style = {styles.button} onPress={() => this.props.navigation.navigate('HomeScreen')} title="Login"/>
+        <Button style = { styles.button } onPress={ () => this.props.navigation.navigate('HomeScreen') } title="Login"/>
       </View>
     );
   }
