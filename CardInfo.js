@@ -30,7 +30,8 @@ class CardInfo extends Component {
             onPress={() => this.props.navigation.navigate("DetailsScreen", {
               appointmentID: this.props.appointmentID,
               dateTime: this.props.dateTime,
-              description: this.props.remarks,
+              description: this.props.description,
+              remarks: this.props.remarks,
               vehicleUnits: this.props.units,
               vehicleValue: this.props.miles,
               phoneType: this.props.label,

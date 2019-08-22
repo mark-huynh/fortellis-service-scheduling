@@ -40,14 +40,18 @@ export default class MainList extends Component {
                                 // customer={item.customer}
                                 customer={item.dateTime}
                                 // startTime={item.startTime}
-                                startTime={Date(item.dateTime).toString().replace(/ [0-9:]+ GMT\-[0-9]{4} \(PDT\)/g, "")}
                                 // endTime={item.endTime}
                                 endTime={Date(item.dateTime).toLocaleString()}
                                 // description={item.description}
-                                description={item.remarks}
+                                description={item.description}
 
                                 appointmentID={item.appointmentId}
-                                dateTime={Date(item.dateTime).toString().replace(/ [0-9:]+ GMT\-[0-9]{4} \(PDT\)/g, "")}
+                                startTime={item.dateTime.replace(
+                                    /([0-9]{4})\-([0-9]{2})\-([0-9]{2})T([0-9]{2}):([0-9]{2}).*/,
+                                    (a, b, c, d, e, f) => {
+                                        return months[c] + " " + d + ", " + b + "  " + e + ":" + f;
+                                    }
+                                )}
                                 remarks={item.remarks}
                                 units={item.vehicleMileage.units}
                                 miles={item.vehicleMileage.value}
@@ -89,3 +93,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     }
 });
+
+const months = {
+    "01": "Jan.",  
+    "02": "Feb.",
+    "03": "Mar.",
+    "04": "Apr.",
+    "05": "May",
+    "06": "Jun.",
+    "07": "Jul.",
+    "08": "Aug.",
+    "09": "Sep.",
+    "10": "Oct.",
+    "11": "Nov.",
+    "12": "Dec."
+};

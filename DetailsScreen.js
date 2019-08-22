@@ -33,6 +33,8 @@ class DetailsScreen extends React.Component {
                 <Text style={styles.field} >Appointment Date: {this.props.navigation.getParam('dateTime', 999)}</Text>
                 <Text style={styles.field} >Description:</Text>
                 <Text style={styles.field} >{this.props.navigation.getParam('description', 999)}</Text>
+                <Text style={styles.field} >Remarks:</Text>
+                <Text style={styles.field} >{this.props.navigation.getParam('remarks', 999)}</Text>
 
                 <Text style={styles.title} >Vehicle Information</Text>
                 <Text style={styles.field} >{this.props.navigation.getParam('vehicleUnits', 999)} : {this.props.navigation.getParam('vehicleValue', 999)}</Text>
