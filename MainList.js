@@ -5,64 +5,18 @@ import CardInfo from './CardInfo';
 import {FlatList, StyleSheet,} from 'react-native';
 import {Content, View} from 'native-base';
 
+import api from './apis/resource'
 
 export default class MainList extends Component {
     state = {
-        sections: {
-            A: [
-                { title: 'Entry_1' },
-                { title: 'Entry_2' }
-            ],
-
-            B: [
-                { title: 'Entry_Alpha' },
-                { title: 'Entry_Beta' }
-            ],
-        },
-
-        items: [
-            {
-                title: 'Repair',
-                customer: 'ABC',
-                startTime: '0800',
-                endTime: '0930',
-                date: '190825',
-                description: '',
-            },
-            {
-                title: 'Coffee Break',
-                customer: 'N/A',
-                startTime: '0930',
-                endTime: '0945',
-                date: '190825',
-                description: '',
-            },
-            {
-                title: 'Meet with Customer',
-                customer: 'ZYX',
-                startTime: '1045',
-                endTime: '1232',
-                date: '190825',
-                description: '',
-            },
-            {
-                title: 'Repair',
-                customer: 'FFF',
-                startTime: '1550',
-                endTime: '1750',
-                date: '190825',
-                description: '',
-            },
-            {
-                title: 'Repair',
-                customer: 'FFF',
-                startTime: '1550',
-                endTime: '1750',
-                date: '190825',
-                description: '',
-            }
-        ]
+        items: []
     }
+
+    componentDidMount = async () => {
+        this.setState({items: await api.fetchSchedule().items});
+        
+    }
+
     ListItemSeparator = () => {
         return (
             <View style={{ height: 50, width: '100%', backgroundColor: '#C8C8C8' }} />
@@ -79,11 +33,16 @@ export default class MainList extends Component {
                         <View style={styles.container} >
                             <CardInfo
                                 style = {styles.container}
-                                title={item.title}
-                                customer={item.customer}
-                                startTime={item.startTime}
-                                endTime={item.endTime}
-                                description={item.description}
+                                // title={item.title}
+                                title={item.remarks}
+                                // customer={item.customer}
+                                customer={item.dateTime}
+                                // startTime={item.startTime}
+                                startTime={item.dateTime}
+                                // endTime={item.endTime}
+                                endTime={item.dateTime.replace(/(\d+)-(\d+)-(\d+)T(\d+):(\d+):(\d+)Z/, "$3/$2/$1 $4:$5:$6")}
+                                // description={item.description}
+                                description={item.remarks}
                                 navigation={this.props.navigation}
                             />
                         </View>
@@ -92,41 +51,6 @@ export default class MainList extends Component {
                 />
             </Content>
         )
-        // return <ScrollView     contentContainerStyle={{
-        //     flexGrow: 1,
-        //     justifyContent: 'space-between'
-        // }}>
-        // {/* style={{ flex: 1, justifyContent: 'center', paddingVertical: 20}}> */}
-        //     <SectionList style={{ justifyContent: 'center', paddingVertical: 20 }}
-        //         ItemSeparatorComponent={this.FlatListItemSeparator}
-        //         sections={[
-        //             { title: 'Today', data: this.state.items },
-        //             // { title: 'Tomorrow', data: '2' },
-        //             // { title: 'Next Week', data: '3'},
-        //             // { title: 'Next Week', data: '4'},
-        //             // { title: 'Beyond Next Week', data: '5'},
-        //         ]}
-
-
-        //         renderSectionHeader={({ section }) => (
-        //             <Text style={styles.SectionHeaderStyle}> {section.title} </Text>
-        //         )}
-
-        //         renderItem={({ item }) => (
-        //             <View>
-        //                 <CardInfo
-        //                     title={item.title}
-        //                     customer={item.customer}
-        //                     startTime={item.startTime}
-        //                     endTime={item.endTime}
-        //                     description={item.description}
-        //                 />
-        //             </View>
-        //         )}
-
-        //         keyExtractor={(item) => item.id}
-        //     />
-        // </ScrollView>
     }
 
 

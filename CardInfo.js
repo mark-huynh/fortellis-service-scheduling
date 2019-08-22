@@ -6,7 +6,7 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
 
 var DESTRUCTIVE_INDEX = 3;
 var CANCEL_INDEX = 4;
-var BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
+var BUTTONS = ["Change Appointment", "Delete Appointment", "Cancel"];
 
 
 class CardInfo extends Component {
