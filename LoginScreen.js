@@ -1,5 +1,11 @@
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
+import * as AppAuth from 'expo-app-auth';
+import 'cred.js';
+
+function cacheAuthAsync(authState) {
+    return AsyncStorage.setItem(StorageKey, JSON.stringify(authState));
+}
 
 const styles = StyleSheet.create({
   title: {
@@ -26,10 +32,14 @@ const styles = StyleSheet.create({
 });
 
 class LoginScreen extends React.Component {
+    async signInAsync() {
+        const authState = await AppAuth.authAsync(config);
+        await cacheAuthAsync(authState);
+        console.log('signInAsync', authState);
+        this.props.navigation.navigate('HomeScreen');
+    }
 
-
-
-render() {  
+render() {
     return (
       <View>
         <Text style = {styles.title}>
@@ -41,7 +51,7 @@ render() {
         <Text style = {styles.title} >
           LOGIN
         </Text>
-        <Button style = { styles.button } onPress={ () => this.props.navigation.navigate('HomeScreen') } title="Login"/>
+        <Button style = { styles.button } onPress={ () => this.signInAsync() } title="Login"/>
       </View>
     );
   }
