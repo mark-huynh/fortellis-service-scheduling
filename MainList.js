@@ -45,15 +45,15 @@ export default class MainList extends Component {
                                 description={item.remarks}
 
                                 appointmentID={item.appointmentId}
-                                dateTime={item.dateTime}
+                                dateTime={Date(item.dateTime).toString().replace(/ [0-9:]+ GMT\-[0-9]{4} \(PDT\)/g, "")}
                                 remarks={item.remarks}
                                 units={item.vehicleMileage.units}
                                 miles={item.vehicleMileage.value}
                                 label={item.contact.label}
                                 phoneNumber={item.contact.uri}
-                                startDay={item.contact.preferences[0].startDay}
+                                start={item.contact.preferences[0].startDay}
                                 endDay={item.contact.preferences[0].endDay}
-                                start={item.contact.preferences[0].startTime}
+                                startT={item.contact.preferences[0].startTime}
                                 end={item.contact.preferences[0].endTime}
                                 navigation={this.props.navigation}
                             />

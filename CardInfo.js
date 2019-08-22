@@ -37,7 +37,7 @@ class CardInfo extends Component {
               phoneNumber: this.props.phoneNumber,
               startDay: this.props.start,
               endDay: this.props.endDay,
-              startTime: this.props.startTime,
+              startTime: this.props.startT,
               endTime: this.props.end
             })}
           >
