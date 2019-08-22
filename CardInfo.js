@@ -27,7 +27,19 @@ class CardInfo extends Component {
       <Content>
         <Card>
           <TouchableHighlight
-            onPress={() => this.props.navigation.navigate("DetailsScreen")}
+            onPress={() => this.props.navigation.navigate("DetailsScreen", {
+              appointmentID: this.props.appointmentID,
+              dateTime: this.props.dateTime,
+              description: this.props.remarks,
+              vehicleUnits: this.props.units,
+              vehicleValue: this.props.miles,
+              phoneType: this.props.label,
+              phoneNumber: this.props.phoneNumber,
+              startDay: this.props.start,
+              endDay: this.props.endDay,
+              startTime: this.props.startTime,
+              endTime: this.props.end
+            })}
           >
             <View>
               <CardItem header>

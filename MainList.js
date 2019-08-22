@@ -43,6 +43,18 @@ export default class MainList extends Component {
                                 endTime={Date(item.dateTime).toLocaleString()}
                                 // description={item.description}
                                 description={item.remarks}
+
+                                appointmentID={item.appointmentId}
+                                dateTime={item.dateTime}
+                                remarks={item.remarks}
+                                units={item.vehicleMileage.units}
+                                miles={item.vehicleMileage.value}
+                                label={item.contact.label}
+                                phoneNumber={item.contact.uri}
+                                startDay={item.contact.preferences[0].startDay}
+                                endDay={item.contact.preferences[0].endDay}
+                                start={item.contact.preferences[0].startTime}
+                                end={item.contact.preferences[0].endTime}
                                 navigation={this.props.navigation}
                             />
                         </View>
