@@ -84,6 +84,7 @@ export default class MainList extends Component {
                                 startTime={item.startTime}
                                 endTime={item.endTime}
                                 description={item.description}
+                                navigation={this.props.navigation}
                             />
                         </View>
                     )}

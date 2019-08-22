@@ -33,7 +33,7 @@ class HomeScreen extends React.Component {
       this.state.loaded ? (
         <Container>
           <HomeScreenHeader style={styles.header} />
-          <MainList />
+          <MainList navigation={this.props.navigation} />
           <Fab
             active={this.state.active}
             direction="up"
