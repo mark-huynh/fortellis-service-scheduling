@@ -25,40 +25,42 @@ class CardInfo extends Component {
     return (
       // <Container>
       <Content>
-        <TouchableHighlight
-          onPress={() => this.props.navigation.navigate("DetailsScreen")}
-        >
-          <Card>
-            <CardItem header>
-              <Text>{this.props.startTime}</Text>
-            </CardItem>
-            <CardItem>
-              <Body>
-                <Text>{this.props.title}</Text>
-              </Body>
-            </CardItem>
-            <CardItem />
-            <CardItem footer bordered>
-              <Button
-                onPress={() =>
-                  ActionSheet.show(
-                    {
-                      options: BUTTONS,
-                      cancelButtonIndex: CANCEL_INDEX,
-                      destructiveButtonIndex: DESTRUCTIVE_INDEX,
-                      title: "Testing ActionSheet"
-                    },
-                    buttonIndex => {
-                      this.setState({ clicked: BUTTONS[buttonIndex] });
-                    }
-                  )
-                }
-              >
-                <Text>Modify Appointment</Text>
-              </Button>
-            </CardItem>
-          </Card>
-        </TouchableHighlight>
+        <Card>
+          <TouchableHighlight
+            onPress={() => this.props.navigation.navigate("DetailsScreen")}
+          >
+            <View>
+              <CardItem header>
+                <Text>{this.props.startTime}</Text>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Text>{this.props.title}</Text>
+                </Body>
+              </CardItem>
+            </View>
+          </TouchableHighlight>
+          <CardItem />
+          <CardItem footer bordered>
+            <Button
+              onPress={() =>
+                ActionSheet.show(
+                  {
+                    options: BUTTONS,
+                    cancelButtonIndex: CANCEL_INDEX,
+                    destructiveButtonIndex: DESTRUCTIVE_INDEX,
+                    title: "Testing ActionSheet"
+                  },
+                  buttonIndex => {
+                    this.setState({ clicked: BUTTONS[buttonIndex] });
+                  }
+                )
+              }
+            >
+              <Text>Modify Appointment</Text>
+            </Button>
+          </CardItem>
+        </Card>
       </Content>
       // </Container>
     );

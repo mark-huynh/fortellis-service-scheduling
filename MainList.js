@@ -38,7 +38,7 @@ export default class MainList extends Component {
                                 // customer={item.customer}
                                 customer={item.dateTime}
                                 // startTime={item.startTime}
-                                startTime={item.dateTime}
+                                startTime={Date(item.dateTime).toString().replace(/ [0-9:]+ GMT\-[0-9]{4} \(PDT\)/g, "")}
                                 // endTime={item.endTime}
                                 endTime={Date(item.dateTime).toLocaleString()}
                                 // description={item.description}
