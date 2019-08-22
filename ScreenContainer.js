@@ -3,16 +3,15 @@ import {createAppContainer, createStackNavigator} from 'react-navigation';
 import LoginScreen from './LoginScreen';
 import HomeScreen from './HomeScreen';
 import AddEventScreen from './AddEventScreen';
-import CustomerScreen from './CustomerScreen';
 import CardInfo from './CardInfo';
+import DetailsScreen from './DetailsScreen'
 
 const NavigationStack = createStackNavigator({
     LoginScreen: { screen: LoginScreen },
     HomeScreen: { screen: HomeScreen },
     AddEventScreen: { screen: AddEventScreen },
-    CustomerScreen: { screen: CustomerScreen },
+    DetailsScreen: { screen: DetailsScreen },
     CardInfo: { screen: CardInfo }
-
 });
 
 const Container = createAppContainer(NavigationStack);

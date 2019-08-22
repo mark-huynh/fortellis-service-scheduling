@@ -3,23 +3,23 @@ import {Button, StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
   title: {
-    backgroundColor: 'green',
+    backgroundColor: '#521ee1',
     fontWeight: 'bold',
-    color: 'white',
+    color: '#ffffff',
     fontSize: 30,
     flexDirection: 'row',
     textAlign: 'center',
   },
     subtitle: {
-    backgroundColor: 'green',
-    color: 'white',
+    backgroundColor: '#521ee1',
+    color: '#ffffff',
     fontSize: 20,
     flexDirection: 'row',
     textAlign: 'center',
   },
   button: {
-    backgroundColor: 'grey',
-    color: 'white',
+    backgroundColor: '#80807f',
+    color: '#ffffff',
     width: 30,
     alignItems: 'center',
   },
