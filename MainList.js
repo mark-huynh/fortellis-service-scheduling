@@ -14,7 +14,7 @@ export default class MainList extends Component {
     }
 
     componentDidMount = async () => {
-        await this.setState({items: await api.fetchSchedule().items});
+        this.setState({items: await api.fetchSchedule().items});
     }
 
     ListItemSeparator = () => {
@@ -30,6 +30,8 @@ export default class MainList extends Component {
                     contentContainerStyle = {styles.container}
                     data = {this.state.items}
                     renderItem={({ item }) => (
+                        console.log(item.dateTime), 
+                        console.log(Date(item.dateTime).toString()),
                         <View style={styles.container} >
                             <CardInfo
                                 style = {styles.container}
