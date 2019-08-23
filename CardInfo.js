@@ -62,7 +62,7 @@ class CardInfo extends Component {
                     options: BUTTONS,
                     cancelButtonIndex: CANCEL_INDEX,
                     destructiveButtonIndex: DESTRUCTIVE_INDEX,
-                    title: "Testing ActionSheet"
+                    title: "Modify Appointment"
                   },
                   buttonIndex => {
                     this.setState({ clicked: BUTTONS[buttonIndex] });
