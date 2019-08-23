@@ -40,7 +40,7 @@ class HomeScreen extends React.Component {
             containerStyle={{ }}
             style={{ backgroundColor: '#5067FF' }}
             position="bottomRight"
-            onPress={ () => this.props.navigation.navigate('DetailsScreen') }
+            onPress={ () => this.props.navigation.navigate('form') }
             title={"Login"}
           >
             <Icon name="add" />
